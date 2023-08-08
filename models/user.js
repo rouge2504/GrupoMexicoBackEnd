@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 const Users = {};
 
 Users.findById = (id, result) =>{
-    const sql = 'SELECT id, email, name, lastname, password FROM users WHERE id = ?';
+    const sql = 'SELECT id, email, name, lastname, image, phone, password FROM users WHERE id = ?';
 
     db.query(
         sql, [id],
