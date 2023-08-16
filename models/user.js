@@ -40,7 +40,7 @@ Users.findByEmail = (email, result) =>{
 }
 
 Users.create = async (user, result) => {
-    const sql ='INSERT INTO users(email,name,lastname,phone,image,password,created_at,update_at) VALUES(?,?,?,?,?,?,?,?)';
+    const sql ='INSERT INTO users(email,name,lastname,phone,image,password,created_at,updated_at) VALUES(?,?,?,?,?,?,?,?)';
 
 	const hash = await bcrypt.hash(user.password, 10);
 
