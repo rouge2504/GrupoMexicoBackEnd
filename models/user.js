@@ -7,7 +7,7 @@ const Users = {};
 Users.findById = (id, result) =>{
     const sql = `
 	SELECT 
-		U.id, 
+		CONVERT(R.id,char) AS id, 
 		U.email, 
 		U.name, 
 		U.lastname, 
@@ -29,7 +29,7 @@ Users.findById = (id, result) =>{
 		roles AS R
 	ON
 		UHR.id_rol = R.id
-	WHERE id = ?
+	WHERE U.id = ?
 	GROUP BY
 		U.id`;
 
@@ -117,6 +117,78 @@ Users.create = async (user, result) => {
             }
         }
     )
+}
+
+Users.updateWithoutImage = (user, result) => {
+	const sql = `
+	UPDATE
+		users
+	SET
+		name = ?,
+		lastname = ?,
+		phone = ?,
+		updated_at = ?
+	WHERE
+		id = ?
+	`;
+	
+	db.query(
+        sql,[
+            user.name,
+            user.lastname,
+            user.phone,
+            new Date(),
+			user.id
+        ],
+        (err, res) => {
+            if(err){
+                console.log('Error:' , err);
+                result(err,null);
+            }else{
+                console.log('Usuario actualizado: ', user.id);
+                result(null, user.id);
+            }
+        }
+    )
+	
+	
+}
+
+Users.update = (user, result) => {
+	const sql = `
+	UPDATE
+		users
+	SET
+		name = ?,
+		lastname = ?,
+		phone = ?,
+		image = ?,
+		updated_at = ?
+	WHERE
+		id = ?
+	`;
+	
+	db.query(
+        sql,[
+            user.name,
+            user.lastname,
+            user.phone,
+            user.image,
+            new Date(),
+			user.id
+        ],
+        (err, res) => {
+            if(err){
+                console.log('Error al tratar de actualizar:' , err);
+                result(err,null);
+            }else{
+                console.log('Usuario actualizado: ', user.id);
+                result(null, user.id);
+            }
+        }
+    )
+	
+	
 }
 
 module.exports = Users;

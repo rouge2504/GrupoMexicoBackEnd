@@ -6,12 +6,19 @@ const logger = require('morgan');
 const cors =  require('cors');
 const passport =  require('passport');
 const multer = require('multer');
+const mercadopago = require('mercadopago');
+
+mercadopago.configure({
+    sandbox: true,
+    access_token: "TEST-8253011200569563-072319-c7a718c5097c269fb5dd529b71dda761-72540198",
+});
 
 /*
         IMPORTAR RUTAS
 */
 
 const usersRoutes = require('./routes/userRoutes');
+const mercadoPagoRoutes = require('./routes/mercadoPagoRoutes');
 
 const port = process.env.PORT || 3000;
 
@@ -39,8 +46,9 @@ const upload = multer ({
     LLAMADO DE RUTAS
 */
 usersRoutes(app, upload);
+mercadoPagoRoutes(app);
 
-server.listen(3000, '192.168.0.5' || 'localhost', function(){
+server.listen(3000, '192.168.0.7' || 'localhost', function(){
     console.log('Aplicacion de NodeJS '+ port + ' Iniciada...')
 });
 
