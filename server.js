@@ -4,6 +4,13 @@ const http = require('http');
 const server =  http.createServer(app);
 const logger = require('morgan');
 const cors =  require('cors');
+const mercadopago = require ('mercadopago');
+mercadopago.configure({
+    sandbox: true,
+    access_token: ''
+});
+
+const mercadoPagoRoutes = require('./routes/mercadoPagoRoutes');
 
 const port = process.env.PORT || 3000;
 
@@ -13,16 +20,17 @@ app.use(express.urlencoded({
     extends: true
 }));
 app.use(cors());
+mercadoPagoRoutes(app);
 app.disable('x-powered-by');
 
 app.set('port', port);
 
-server.listen(3000, 'localhost', function(){
+server.listen(3000, '192.168.0.7' || 'localhost', function(){
     console.log('Aplicacion de NodeJS '+ port + ' Iniciada...')
 });
 
 app.get('/', (req,res) => (
-    res.send('Ruta Raiz backend')
+    res.send('Quiubo')
 ));
 
 app.get('/test', (req,res) => (
