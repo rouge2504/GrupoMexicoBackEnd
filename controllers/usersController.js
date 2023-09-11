@@ -63,6 +63,7 @@ module.exports = {
     },
 
     register(req, res){
+        print ("Registrando un usuario");
         const user = req.body;
         User.create(user, (err, data) => {
             if(err){
