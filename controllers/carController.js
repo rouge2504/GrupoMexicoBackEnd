@@ -27,6 +27,8 @@ module.exports = {
                 });
 
             }
+
+            console.log('Send Status 200');
                  return res.status(200).json({
                     success: true,
                     message: 'El carro se creo correctamente',
@@ -51,5 +53,44 @@ module.exports = {
 		});
 
 
-	}
+	},
+
+	async deleteCarByAlias(req, res){
+		console.log('Deleting Car');
+		Car.deleteCarByAlias(req.body, (err, data)=>{
+			if (err){
+				 return res.status(501).json({
+                    success: false,
+                    message: 'Error to delete car',
+                    error: err
+                });
+			}
+
+			 return res.status(200).json({
+			    success: true,
+			    message: 'Car deleted',
+			    data: data
+			});
+		});
+	},
+
+
+		async deleteCarByNumberPlate(req, res){
+		console.log('Deleting Car');
+		Car.deleteCarByNumberPlate(req.body, (err, data)=>{
+			if (err){
+				 return res.status(501).json({
+                    success: false,
+                    message: 'Error to delete car',
+                    error: err
+                });
+			}
+
+			 return res.status(200).json({
+			    success: true,
+			    message: 'Car deleted',
+			    data: data
+			});
+		});
+	},
 }

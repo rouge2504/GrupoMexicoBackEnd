@@ -95,5 +95,6 @@ INSERT INTO roles(
     edges VARCHAR (90) NOT NULL,
     created_at TIMESTAMP(0) NOT NULL,
     updated_at TIMESTAMP(0) NOT NULL,
-
+    foreign key(id_user) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    PRIMARY KEY (id_user)
  );
