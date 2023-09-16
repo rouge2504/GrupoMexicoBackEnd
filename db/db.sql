@@ -77,3 +77,23 @@ INSERT INTO roles(
     foreign key(id_rol) REFERENCES roles(id) ON UPDATE CASCADE ON DELETE CASCADE,
     PRIMARY KEY (id_user, id_rol)
  );
+
+
+//--------------------------------------------------
+
+  USE grupo_mexico;
+
+  
+  CREATE TABLE user_has_car(
+    id_user BIGINT NOT NULL,
+    image VARCHAR (255) NULL,
+    alias VARCHAR (90) NOT NULL,
+    number_plate VARCHAR (90) NOT NULL,
+    mark VARCHAR (90) NOT NULL,
+    model VARCHAR (90) NOT NULL,
+    year VARCHAR (90) NOT NULL,
+    edges VARCHAR (90) NOT NULL,
+    created_at TIMESTAMP(0) NOT NULL,
+    updated_at TIMESTAMP(0) NOT NULL,
+
+ );

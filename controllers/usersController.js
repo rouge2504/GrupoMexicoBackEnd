@@ -62,10 +62,10 @@ module.exports = {
         });
     },
 
-    register(req, res){
-        print ("Registrando un usuario");
+    async register(req, res){
+        console.log ("Registrando un usuario");
         const user = req.body;
-        User.create(user, (err, data) => {
+                User.create(user, (err, data) => {
             if(err){
                 return res.status(501).json({
                     success: false,
@@ -73,14 +73,21 @@ module.exports = {
                     error: err
                 });
             }
-			
-			user.id = '${data}';
 
-            return res.status(201).json({
-                success: true,
-                message: 'El registro se realizo correctamente',
-                data: data
-            });
+            user.id = `${data}`;
+            
+            const token = jwt.sign({id: user.id, email: user.email}, keys.secretOrKey, {});
+            user.session_token = 'JWT ${token}';
+            
+                        return res.status(201).json({
+                    success: true,
+                    message: 'El usuario se creo correctamente',
+                    data: data
+                });
+        
+            
+
+
         });
     }, 
 

@@ -4,6 +4,34 @@ const bcrypt = require('bcryptjs');
 
 const Users = {};
 
+Users.findByID = (id, result) => {
+	console.log('Id user: ', id);
+	const sql = `
+	SELECT * FROM users WHERE id = ?`
+
+	db.query(sql, [id],
+		(err, user) => {
+
+			if(err){
+                console.log('Error:' , err);
+                result(err,null);
+            }else{
+            	console.log('ID Result: ', user[0]);
+        		if(user.length == 0){
+        			console.error("ID not found: ", err);
+	                result(err,null);
+
+        		}else{
+                console.log('Usuario obtenido: ', user[0]);
+                result(null,user[0]);
+            }
+            }
+		}
+		);
+
+
+}
+
 Users.findById = (id, result) =>{
     const sql = `
 	SELECT 

@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session');
 const app = express();
 const http = require('http');
 const server =  http.createServer(app);
@@ -21,7 +22,12 @@ const usersRoutes = require('./routes/userRoutes');
 const mercadoPagoRoutes = require('./routes/mercadoPagoRoutes');
 
 const port = process.env.PORT || 3000;
-
+    app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({
@@ -48,7 +54,7 @@ const upload = multer ({
 usersRoutes(app, upload);
 mercadoPagoRoutes(app);
 
-server.listen(3000, '192.168.0.7' || 'localhost', function(){
+server.listen(3000, '192.168.0.8' || 'localhost', function(){
     console.log('Aplicacion de NodeJS '+ port + ' Iniciada...')
 });
 
