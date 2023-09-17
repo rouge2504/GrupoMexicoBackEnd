@@ -26,6 +26,12 @@ module.exports = {
                     error: err
                 });
 
+      			return res.status(404).json({
+                    success: false,
+                    message: 'El carro no se creo',
+                    data: err
+                });;
+
             }
 
             console.log('Send Status 200');
@@ -93,4 +99,30 @@ module.exports = {
 			});
 		});
 	},
+
+	async getCars(req, res){
+		console.log('Get Cars');
+		Car.getCars(req.body, (err, data)=>{
+			if (err){
+				return res.status(501).json({
+					success: false,
+                    message: 'Error to get cars',
+                    error: err
+				});
+			}
+
+			return res.status(404).json({
+					success: false,
+                    message: 'Error to get cars',
+                    error: err
+				});
+
+			return res.status(200).json({
+			    success: true,
+			    message: 'Get Cars',
+			    data: data
+			});
+		});
+
+	}
 }

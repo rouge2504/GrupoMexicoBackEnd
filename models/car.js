@@ -133,4 +133,21 @@ Car.deleteCarByNumberPlate = (car, result)=>{
 	});
 }
 
+Car.getCars = (car, result) => {
+	const sql = `
+		SELECT * FROM user_has_car WHERE id_user = ?
+	`;
+
+	db.query(sql, [car.id_user], (err, cars) => {
+		if (err){
+			console.log('Error to get cars', err);
+			result(err,null);
+		}else{
+			console.log('Get Cars: ', cars);
+			result(null, cars);
+		}
+	});
+}
+
+
 module.exports = Car;
