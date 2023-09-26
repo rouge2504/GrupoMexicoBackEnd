@@ -113,3 +113,10 @@ INSERT INTO roles(
     updated_at TIMESTAMP(0) NOT NULL,
     foreign key(id_user) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
  );
+
+
+  SET SQL_SAFE_UPDATES = 0;
+DELETE FROM grupo_mexico.user_has_car
+ WHERE alias='Milk';
+ 
+ SET SQL_SAFE_UPDATES = 1;
