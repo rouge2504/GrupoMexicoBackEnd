@@ -54,7 +54,7 @@ const upload = multer ({
 usersRoutes(app, upload);
 mercadoPagoRoutes(app);
 
-server.listen(3000, /*'192.168.0.10' || 'localhost'*/, function(){
+server.listen(3000, /*'192.168.0.10' || 'localhost',*/ function(){
     console.log('Aplicacion de NodeJS '+ port + ' Iniciada...')
 });
 
