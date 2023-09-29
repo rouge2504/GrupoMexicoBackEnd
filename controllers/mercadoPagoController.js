@@ -77,20 +77,51 @@ async createClient(req, res){
         "email":client.email 
     }
 
+    let activeError = false;
+
     const data = await mercadopago.customers.create(customer_data).catch((err) => {
         console.log('Error de mercado pago', err);
+        console.log('Error de mercado pago status', err.status);
         console.log('Status ', res.status );
+
+        if (err.status == 400){
+                activeError = true;
+        }
+
+        if (res.status == 400){
+            return res.status
+        }
         return res.status(501).json({
-            success: true,
+            success: false,
             message: 'Error al crear el pago',
-            error: errr,
+            error: err,
         })
+
     });
+
+    if (activeError){
+            console.log('Mandado algo de este puto error');
+
+
+            const customer = {
+  success: false,
+  message: "Usuario ya existe",
+  data: "",
+};
+
+
+const jsonString = JSON.stringify(customer);
+            return jsonString;
+
+    }
+
 
     if (data){
         console.log('Los a ver que tal sale este jale', data.status);
         if (data !== undefined){
+            console.log('No esta definido');
         }
+            console.log('Esta definido');
     }
 
     return res.status(201).json({

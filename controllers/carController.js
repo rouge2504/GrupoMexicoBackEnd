@@ -111,12 +111,7 @@ module.exports = {
 				});
 			}
 
-			return res.status(404).json({
-					success: false,
-                    message: 'Error to get cars',
-                    error: err
-				});
-
+			console.log(data);
 			return res.status(200).json({
 			    success: true,
 			    message: 'Get Cars',

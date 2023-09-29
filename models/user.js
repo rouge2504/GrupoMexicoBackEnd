@@ -77,33 +77,47 @@ Users.findById = (id, result) =>{
 
 
 Users.findByEmail = (email, result) =>{
-    const sql = `
+    /*const sql = `
 	SELECT 
 		U.id, 
 		U.email, 
 		U.name, 
 		U.lastname, 
+		U.phone,
 		U.password,
 		JSON_ARRAYAGG(
 			JSON_OBJECT(
-				'id', CONVERT(R.id, char),
-				'name', R.name,
-				'image', R.image,
-				'route', R.route
+				'id_user', CONVERT(U.id, char),
+				'alias', UHC.alias,
+				'image', UHC.image,
+				'number_plate', UHC.number_plate,
+				'mark', UHC.mark,
+				'model', UHC.model,
+				'year', UHC.year,
+				'edges',UHC.edges
 			)
-		) AS roles
+		) AS cars
 	FROM users  AS U
 	INNER JOIN 
-		user_has_roles AS UHR
+		user_has_car AS UHC
 		ON
-		UHR.id_user = U.id
-	INNER JOIN
-		roles AS R
-	ON
-		UHR.id_rol = R.id
+		UHC.id_user = U.id
 	WHERE email = ?
 	GROUP BY
-		U.id`;
+		U.id`;*/
+
+	const sql=`
+	SELECT
+		id, 
+		email, 
+		name, 
+		lastname,
+		phone,
+		image,
+		password
+	FROM users
+		WHERE email = ?
+		`;
 
     db.query(
         sql, [email],
