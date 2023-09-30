@@ -1,3 +1,11 @@
+/*
+Server: sql9.freemysqlhosting.net
+Name: sql9650030
+Username: sql9650030
+Password: rFxy2GqGA5
+Port number: 3306
+*/
+
 USE grupo_mexico;
 
 CREATE TABLE users(
