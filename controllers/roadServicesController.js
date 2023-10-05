@@ -25,9 +25,9 @@ module.exports = {
 			    data: data
 			});
 		});
-	}
+	},
 
-		async getTollboth(req, res){
+		async getTollboths(req, res){
 		console.log('Get tollboths');
 		RoadServices.getTollboths(req.body, (err, data)=>{
 			if (err){

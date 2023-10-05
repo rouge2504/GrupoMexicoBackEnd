@@ -34,18 +34,18 @@ RoadServices.createTollboth = (tollboth, result)=> {
 
 }
 
-Car.getTollboths = (tollboth, result) => {
+RoadServices.getTollboths = (tollboth, result) => {
 	const sql = `
-		SELECT * FROM road_services WHERE name = ?
+		SELECT * FROM road_services
 	`;
 
-	db.query(sql, [tollboth.name], (err, cars) => {
+	db.query(sql, (err, tollboths) => {
 		if (err){
 			console.log('Error to get tollboth', err);
 			result(err,null);
 		}else{
-			console.log('Get tollboths: ', tollboth);
-			result(null, tollboth);
+			console.log('Get tollboths: ', tollboths);
+			result(null, tollboths);
 		}
 	});
 }
