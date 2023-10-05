@@ -92,8 +92,22 @@ function App() {
         socket.emit('enviarMensaje', textNotificacion);
         alert("Mensaje enviado a Server y usuarios");
       };
+      
+    //  const backgroundImageStyle = {
+      //  backgroundImage: 'url("/cliente/Img/GrupoMexicoLogo.jpg")', // Reemplaza con la ruta real de tu imagen
+        //backgroundSize: '100% 100%', // Ajusta el tamaño de fondo
+        //backgroundRepeat: 'no-repeat',
+        //backgroundPosition: 'center',
+        //display: 'flex',
+        //flexDirection: 'column',
+        //justifyContent: 'center',
+      //};
+    
     return (
-        <div className="container">
+  
+       
+        <div className="container" >
+            
         <div className="card text-center">
         <div className="card-header">
             TABLERO DE CONTROL
@@ -154,9 +168,9 @@ function App() {
                 </div>
                 :
                 <div>
-                <button className='btn btn-success m-2' onClick={add}>Registrar</button>
-                <button type="button" className="btn btn-dark m-2" onClick={ShowUsersAction}>Mostrar Usuarios</button>
-                <button type="button" className="btn btn-ligth m-2" onClick={sendNoti}>Enviar Notificacion</button>
+                <button className='btn btn-danger m-2' onClick={add}>Registrar</button>
+                <button type="button" className="btn btn-outline-danger m-2" onClick={ShowUsersAction}>Mostrar Usuarios</button>
+                <button type="button" className="btn btn-danger m-2" onClick={sendNoti}>Enviar Notificacion</button>
                 </div>
 
             }
