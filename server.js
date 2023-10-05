@@ -20,8 +20,7 @@ mercadopago.configure({
 
 const usersRoutes = require('./routes/userRoutes');
 const mercadoPagoRoutes = require('./routes/mercadoPagoRoutes');
-const roadServicesRoutes = require('./routes/roadServicesRoutes');
-
+const accidentRoutes = require('./routes/accidentRoutes');
 
 const port = process.env.PORT || 3000;
     app.use(session({
@@ -54,10 +53,9 @@ const upload = multer ({
     LLAMADO DE RUTAS
 */
 usersRoutes(app, upload);
-roadServicesRoutes(app,upload);
 mercadoPagoRoutes(app);
-
-server.listen(3000, '172.202.5.94' || 'localhost', function(){
+accidentRoutes(app,upload);
+server.listen(3000,'172.102.0.151' || 'localhost', function(){
     console.log('Aplicacion de NodeJS '+ port + ' Iniciada...')
 });
 
