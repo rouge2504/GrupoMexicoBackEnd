@@ -123,8 +123,24 @@ INSERT INTO roles(
  );
 
 
+
+
   SET SQL_SAFE_UPDATES = 0;
 DELETE FROM grupo_mexico.user_has_car
  WHERE alias='Milk';
  
  SET SQL_SAFE_UPDATES = 1;
+
+
+ USE grupo_mexico;
+
+  
+  CREATE TABLE road_services(
+    id_user BIGINT NOT NULL,
+    id_card VARCHAR (255) NULL,
+    number_card VARCHAR (255) NULL,
+    nip VARCHAR (90) NOT NULL,
+    created_at TIMESTAMP(0) NOT NULL,
+    updated_at TIMESTAMP(0) NOT NULL,
+    foreign key(id_user) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
+ );

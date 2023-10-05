@@ -127,7 +127,7 @@ const jsonString = JSON.stringify(customer);
     return res.status(201).json({
                     success: true,
                     message: 'El cliente se creo correctamente',
-                    data: data
+                    data: data.body
                 });
  },
 
@@ -140,18 +140,20 @@ const jsonString = JSON.stringify(customer);
     email:client.email,
   };
 
-  mercadopago.customers.search({
+  data  = mercadopago.customers.search({
     qs: filters
-  }).then(function (customer) {
+  }).then(function (customer) { 
     console.log(customer);
 
+
+  });
+
+  console.log(data.status);
     return res.status(200).json({
         success: true,
         message: 'El cliente se encontro correctamente',
         data: data
     });
-  });
-
     }
 }
 
