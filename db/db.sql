@@ -144,3 +144,21 @@ DELETE FROM grupo_mexico.user_has_car
     updated_at TIMESTAMP(0) NOT NULL,
     foreign key(id_user) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
  );
+
+
+//--
+USE reactrojo;
+
+CREATE TABLE USUARIO_ACCIDENTE(
+id BIGINT PRIMARY KEY AUTO_INCREMENT,
+nombre VARCHAR(255),
+apellido VARCHAR(255),
+email VARCHAR(255),
+telefono VARCHAR(255),
+coche VARCHAR(255),
+latitud VARCHAR(255),
+longuitud VARCHAR(255),
+placa VARCHAR(255)
+);
+
+select * from USUARIO_ACCIDENTE;
