@@ -30,7 +30,7 @@ sql,(err,noti)=>{
         console.log('Error to get notificaciones table', err);
     } else {
         console.log('Get notificaciones: ', noti);
-        result(null,result);
+        result(null,noti);
     }
 }
 )
