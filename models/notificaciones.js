@@ -17,9 +17,38 @@ Notificacion.create =(noti, result)=>{
                         result(err,null);
                     }else{
                         console.log('Notificacion registrada: ', noti.Descripcion);
-                        result(null,noti);
+                        result(null,result);
                     }   
                 }
         );
+};
+Notificacion.getNotificaciones =(noti,result)=>{
+const sql =`SELECT * FROM NOTIFICACIONES_IMG`;
+db.query(
+sql,(err,noti)=>{
+    if (err) {
+        console.log('Error to get notificaciones table', err);
+    } else {
+        console.log('Get notificaciones: ', noti);
+        result(null,result);
+    }
+}
+)
+};
+
+Notificacion.getNotificacionesById = (noti,result)=>{
+    const sql =`SELECT * FROM NOTIFICACIONES_IMG WHERE id = ?`;
+    db.query(
+    sql,[
+        noti.id
+    ],(err,noti)=>{
+        if (err) {
+            console.log('Error to get notificaciones table', err);
+        } else {
+            console.log('Get notificaciones: ', noti);
+            result(null,noti);
+        }
+    }
+    )
 };
 module.exports = Notificacion;

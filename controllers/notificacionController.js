@@ -24,5 +24,44 @@ module.exports = {
 			    data: data
 			});    
         });
-    }
+    },
+
+ async getNotificaciones(req,res){
+	console.log("Get Notificacion");
+	Notificacion.getNotificaciones(req.body,(err,data)=>{
+		if (err){
+			return res.status(501).json({
+				success: false,
+				message: 'Error to get notificaciones',
+				error: err
+			});
+		}
+
+		console.log(data);
+		return res.status(200).json({
+			success: true,
+			message: 'Get Notificaciones',
+			data: data
+		});
+	});
+ },
+ async getNotificacionesById(req,res){
+	console.log("Get Notificacion con ID");
+	Notificacion.getNotificacionesById(req.body,(err,data)=>{
+		if (err){
+			return res.status(501).json({
+				success: false,
+				message: 'Error to get notificaciones',
+				error: err
+			});
+		}
+
+		console.log(data);
+		return res.status(200).json({
+			success: true,
+			message: 'Get Notificaciones',
+			data: data
+		});
+	});
+ }
 }
