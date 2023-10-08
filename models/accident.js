@@ -14,7 +14,7 @@ Accident.create = (accident, result)=>{
             accident.coche,
             accident.latitud,
             accident.longuitud,
-            accident.placa],(err, res) => {
+            accident.placa],(err, res)  => {
                 if(err){
                     console.log('Error:' , err);
                     result(err,null);

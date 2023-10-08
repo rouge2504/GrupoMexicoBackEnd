@@ -2,6 +2,7 @@ import './App.css';
 //import React, { useState, useEffect } from "react";
 //import Axios from "axios";
 import AccidentesList from './AccidentsValue';
+import NotificacionesReact from './NotificacionesReact';
 
 //const apiNameGet ='/api/accident/showAccidents';
 //const apiName = 'http://192.168.1.89:3000/api/accident/showAccidents';
@@ -11,6 +12,7 @@ function App() {
   return (
     <div className="App">
       <AccidentesList/>
+      <NotificacionesReact/>
     </div>
   );
 }

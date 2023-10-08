@@ -162,3 +162,12 @@ placa VARCHAR(255)
 );
 
 select * from USUARIO_ACCIDENTE;
+
+CREATE TABLE NOTIFICACIONES_IMG(
+	Id INT AUTO_INCREMENT PRIMARY KEY,
+	Titulo VARCHAR(255),
+    Descripcion TEXT,
+    URLImagen VARCHAR(255),
+    Emission_date DATE,
+    Finalizacion_date DATE
+);
