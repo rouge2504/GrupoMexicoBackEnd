@@ -5,6 +5,7 @@ const RoadServices = {};
 RoadServices.createTollboth = (tollboth, result)=> {
 	const sql = `INSERT INTO 
 		road_services(
+			id_services,
 			name,
 			adress,
 			lat,
@@ -13,10 +14,12 @@ RoadServices.createTollboth = (tollboth, result)=> {
 			created_at,
 			updated_at
 		)
-		VALUES(?,?,?,?,?,?,?)
+		VALUES(?,?,?,?,?,?,?,?)
 		`;
 
-		db.query(sql, [tollboth.name,
+		db.query(sql, [
+						tollboth.id_services,
+						tollboth.name,
 						tollboth.adress,
 						tollboth.lat,
 						tollboth.lon,
@@ -36,10 +39,10 @@ RoadServices.createTollboth = (tollboth, result)=> {
 
 RoadServices.getTollboths = (tollboth, result) => {
 	const sql = `
-		SELECT * FROM road_services
+		SELECT * FROM road_services WHERE id_services = ?
 	`;
 
-	db.query(sql, (err, tollboths) => {
+	db.query(sql, [tollboth.id_services], (err, tollboths) => {
 		if (err){
 			console.log('Error to get tollboth', err);
 			result(err,null);
