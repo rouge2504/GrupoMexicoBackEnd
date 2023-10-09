@@ -14,7 +14,7 @@ Accident.create = (accident, result)=>{
             accident.coche,
             accident.latitud,
             accident.longuitud,
-            accident.placa],(err, res) => {
+            accident.placa],(err, res)  => {
                 if(err){
                     console.log('Error:' , err);
                     result(err,null);
@@ -24,6 +24,19 @@ Accident.create = (accident, result)=>{
                 }
             }
     );
+};
+Accident.showAccidents =(accident, result)=>{
+const sql = `SELECT * FROM USUARIO_ACCIDENTE ORDER BY id DESC `;
+db.query(
+    sql,[accident.id], (err, accident) => {
+        if (err) {
+            console.log('Error to get accidents table', err);
+        } else {
+            console.log('Get accidentes: ', accident);
+            result(null,accident);
+        }
+    }
+)
 };
 
 module.exports = Accident;
