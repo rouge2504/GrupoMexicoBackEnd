@@ -1,5 +1,8 @@
 import React,{useEffect,useState} from "react";
 import Axios from 'axios';
+//import bootstrap from 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 const apiName = 'http://192.168.1.89:3000/api/accident/showAccidents';
 const AccidentesList = ()=> {
 
@@ -21,25 +24,25 @@ const AccidentesList = ()=> {
         console.log("Lista usuarios boton" , usuariosList.data);
        
         return (
-            <table>
+          <table className="table table-light">
               <thead>
                 <tr>
-                <th>Folio</th>
-                  <th>Nombre</th>
-                  <th>Apellido</th>
-                  <th>Email</th>
-                  <th>Teléfono</th>
-                  <th>Coche</th>
-                  <th>Latitud</th>
-                  <th>Longitud</th>
-                  <th>Placa</th>
+                <th scope="col">Folio</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Apellido</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Teléfono</th>
+                  <th scope="col">Coche</th>
+                  <th scope="col">Latitud</th>
+                  <th scope="col">Longitud</th>
+                  <th scope="col">Placa</th>
                 </tr>
               </thead>
               <tbody>
                 {usuariosList.data.map((accidente) => (
                   <tr key={accidente.id}>
-                    <td style={{ textAlign: "center" }}>{accidente.id}</td>
-                     <td style={{ textAlign: "center" }}>{accidente.nombre}</td>
+                    <th scope="row">{accidente.id}</th>
+                    <td style={{ textAlign: "center" }}>{accidente.nombre}</td>
                     <td style={{ textAlign: "center" }}>{accidente.apellido}</td>
                     <td style={{ textAlign: "center" }}>{accidente.email}</td>
                     <td style={{ textAlign: "center" }}>{accidente.telefono}</td>
@@ -51,6 +54,8 @@ const AccidentesList = ()=> {
                 ))}
               </tbody>
             </table>
+
+            
           );
         };
      useEffect(() => {
@@ -68,11 +73,19 @@ const AccidentesList = ()=> {
         console.log("Lista usuarios" , usuariosList); // Mostrará el valor actualizado de usuariosList
       }, [usuariosList]);*/
   return (
+    <div className="container">
+ 
+
     <div>
-    <h1>Tabla de Accidentes</h1>
-    <div className="Lista">
-      <button onClick={setShowArray}>Lista Accidentes</button>
+    <h1>Tabla de Control Grupo México</h1>
+
+
     </div>
+    <div className="card text-center">
+  <div className="card-header">
+    Accidentes
+  </div>
+    <div className="card-body">
     {isLoading ? (
       <p>Presiona para iniciar capibara...</p>
       ) : (
@@ -80,10 +93,53 @@ const AccidentesList = ()=> {
           {listaAccidentes()}
         </div>
       )}
+      
+    </div>
+    <div className="card-footer text-muted">
+    <button type="button" className="btn btn-outline-danger" onClick={setShowArray}>Lista Accidentes</button>
+    </div>
+  </div>
+
+
     </div>
   ); 
 }
 export default AccidentesList;
+
+
+/*
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+*/ 
+
+
 
 /*
 <table>

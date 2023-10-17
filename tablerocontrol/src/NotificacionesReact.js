@@ -140,12 +140,83 @@ const NotificacionesReact = ()=>{
     }
     const formularioNoti=()=>{
         return(
-            <div>
 <div>
-        <label>Título:</label>
-        <input type="text" value={Titulo} onChange={(e) => SetTitulo(e.target.value)} />
+            <div className="input-group mb-3">
+  <span className="input-group-text" id="basic-addon1">Titulo</span>
+  <input type="text" value={Titulo}
+  onChange={(e) => SetTitulo(e.target.value)}
+  className="form-control" placeholder="Ingrese el titulo de la notificación" aria-label="Username" aria-describedby="basic-addon1"/>
     </div>
-    <div>
+
+    <div className="input-group mb-3">
+      <span className="input-group-text" id="basic-addon1">Descripción</span>
+      <input type="text" value={Descripcion}
+      onChange={(e) => SetDescripcion(e.target.value)}
+      className="form-control" placeholder="Ingrese la descripcion de la notificación" aria-label="Username" aria-describedby="basic-addon1"/>
+     </div>
+
+     <div className="input-group mb-3">
+      <span className="input-group-text" id="basic-addon1">Imagen Url</span>
+      <input type="text" value={URLImagen}
+      onChange={(e) => SetURL(e.target.value)}
+      className="form-control" placeholder="Ingrese la URL de la imagen" aria-label="Username" aria-describedby="basic-addon1"/>
+     </div>
+
+     <div className="input-group mb-3">
+      <span className="input-group-text" id="basic-addon1">Fecha de Emisión</span>
+      <input type="date" value={Emission_date} onChange={(e) => SetEmisionDate(e.target.value)}
+      className="form-control" placeholder="Ingrese la fecha de la emisión" aria-label="Username" aria-describedby="basic-addon1"/>
+     </div>
+
+     <div className="input-group mb-3">
+      <span className="input-group-text" id="basic-addon1">Fecha de Finalización</span>
+      <input type="date" value={Finalizacion_date} onChange={(e) => SetFinalizacion(e.target.value)}
+      className="form-control" placeholder="Ingrese la fecha de la Finalización" aria-label="Username" aria-describedby="basic-addon1"/>
+     </div>
+     
+        <button type="button" className="btn btn-outline-danger" onClick={addNoti}>Salvar Notificación</button>
+    
+        <button type="button" className="btn btn-outline-danger" onClick={showSendNoti}>Enviar Notificaciones</button>
+        <div>
+            {formularioSendNoti()}
+        </div>
+</div>
+        );
+    }
+
+
+    return(
+        <div className="container">
+
+    <div className="Notificaciones">
+    
+</div>
+<div className="card text-center">
+  <div className="card-header">
+    Notificaciones
+  </div>
+  <div className="card-body">
+  
+  {ShowNoti ?(
+        <p>Haz click para generar una notificacion</p>
+    ):(
+        <div>
+            {formularioNoti()}
+        </div>
+    )}
+  </div>
+  <div className="card-footer text-muted">
+  <button type="button" className="btn btn-outline-danger" onClick={showNotificaciones}>Generar Notificacion</button>
+  </div>
+</div>
+</div>
+
+    );
+}
+export default NotificacionesReact;
+
+/*
+<div>
         <label>Descripción:</label>
         <textarea value={Descripcion} onChange={(e) => SetDescripcion(e.target.value)} />
     </div>
@@ -168,26 +239,4 @@ const NotificacionesReact = ()=>{
             {formularioSendNoti()}
         </div>
     </div>
-    </div>
-        );
-    }
-
-
-    return(
-    <div className="Notificaciones">
-    
-    <button onClick={showNotificaciones}>Generar Notificacion</button>
-    {ShowNoti ?(
-        <p>Haz click para generar una notificacion</p>
-    ):(
-        <div>
-            {formularioNoti()}
-        </div>
-    )
-
-    }
-</div>
-
-    );
-}
-export default NotificacionesReact;
+*/
