@@ -30,7 +30,7 @@ const RoadServices = ()=> {
     const [showServicios, setGServicios] = useState(false);
 
     const addValues=()=>{
-        Axios.post(apiNameSet + 'api/roadServices/createRoadService', {
+        Axios.post(apiNameSet + 'api/roadServices/createTollboth', {
             id_services: IdService,
 			name: Name,
 			adress: Adress,
