@@ -2,7 +2,7 @@ const db = require('../config/config');
 
 const RoadServices = {};
 
-RoadServices.createTollboth = (tollboth, result)=> {
+RoadServices.createRoadService = (RoadService, result)=> {
 	const sql = `INSERT INTO 
 		road_services(
 			id_services,
@@ -18,20 +18,20 @@ RoadServices.createTollboth = (tollboth, result)=> {
 		`;
 
 		db.query(sql, [
-						tollboth.id_services,
-						tollboth.name,
-						tollboth.adress,
-						tollboth.lat,
-						tollboth.lon,
-						tollboth.cost,
+			RoadService.id_services,
+			RoadService.name,
+			RoadService.adress,
+			RoadService.lat,
+			RoadService.lon,
+			RoadService.cost,
 						new Date(),
 						new Date()], (err, res )=> {
 							if (err){
-								console.log('Error to create Tollboth:' , err);
+								console.log('Error to create RoadService:' , err);
 				                result(err,null);
 							}else{
-				                console.log('Tollboth obtenido: ', tollboth.name);
-				                result(null,tollboth);
+				                console.log('RoadService obtenido: ', RoadService.name);
+				                result(null,RoadService);
 							}
 						});
 

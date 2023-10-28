@@ -3,6 +3,7 @@ import './App.css';
 //import Axios from "axios";
 import AccidentesList from './AccidentsValue';
 import NotificacionesReact from './NotificacionesReact';
+import RoadServices from './roadservice';
 
 //const apiNameGet ='/api/accident/showAccidents';
 //const apiName = 'http://192.168.1.89:3000/api/accident/showAccidents';
@@ -13,6 +14,7 @@ function App() {
     <div className="App">
       <AccidentesList/>
       <NotificacionesReact/>
+      <RoadServices/>
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import React,{useState} from "react";
 import Axios from 'axios';
-const apiNameNot = 'http://192.168.1.89:3000/api/notificaciones/create';
-const apiNameSend ='http://192.168.1.89:3000/api/notificaciones/getNotificacionesById';
-const apiNameSecond ='http://192.168.1.89:3000/api/notificaciones/getNotificaciones';
+const apiNameNot = 'http://26.255.20.111:3000/api/notificaciones/create';
+const apiNameSend ='http://26.255.20.111:3000/api/notificaciones/getNotificacionesById';
+const apiNameSecond ='http://26.255.20.111:3000/api/notificaciones/getNotificaciones';
 
 const NotificacionesReact = ()=>{
 

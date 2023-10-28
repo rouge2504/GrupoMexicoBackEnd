@@ -3,7 +3,7 @@ import Axios from 'axios';
 //import bootstrap from 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const apiName = 'http://192.168.0.10:3000/api/accident/showAccidents';
+const apiName = 'http://26.255.20.111:3000/api/accident/showAccidents';
 const AccidentesList = ()=> {
 
     const [usuariosList, setUsuarios] = useState([]);

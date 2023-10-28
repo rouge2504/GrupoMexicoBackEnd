@@ -57,7 +57,7 @@ usersRoutes(app, upload);
 mercadoPagoRoutes(app);
 accidentRoutes(app,upload);
 roadServicesRoutes(app,upload);
-server.listen(3000,'192.168.0.10' || 'localhost', function(){
+server.listen(3000,'26.255.20.111' || 'localhost', function(){
     console.log('Aplicacion de NodeJS '+ port + ' Iniciada...')
 });
 
