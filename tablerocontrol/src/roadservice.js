@@ -4,7 +4,7 @@ import Axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const apiNameSet = 'http://26.255.20.111:3000/api/roadServices/createRoadService';
-const apiNameGet = 'http://26.255.20.111:3000/api/roadServices/getTollboths';
+//const apiNameGet = 'http://26.255.20.111:3000/api/roadServices/getTollboths';
 
 const RoadServices = ()=> {
 
@@ -24,6 +24,10 @@ const RoadServices = ()=> {
     const [Cost, SetCost] = useState("");
     const [created, SetCreate] = useState("");
     const [updated, SetUpdate] = useState("");
+
+    const [showGasStation, setGas] = useState(false);
+    const [showCasetas, setCaseta] = useState(false);
+    const [showServicios, setGServicios] = useState(false);
 
     const addValues=()=>{
         Axios.post(apiNameSet, {
@@ -52,15 +56,31 @@ const RoadServices = ()=> {
         SetUpdate("");
     }
 
+    const ChangeCasetas=()=>{
+      SetId(1);
+      setCaseta(!showCasetas);
+      setGServicios(false);
+      setGas(false);
+    }
+    const ChangeGas=()=>{
+      SetId(2);
+      setCaseta(false);
+      setGServicios(false);
+      setGas(!showGasStation);
+    }
+    const ChangeService=()=>{
+      SetId(3);
+      setCaseta(false);
+      setGServicios(!showServicios);
+      setGas(false);
+    }
+
     const formularioRoadService=()=>{
         return(
+          
             <div>
-            <div className="input-group mb-3">
-              <span className="input-group-text" id="basic-addon1">Id</span>
-              <input type="text" value={IdService}
-              onChange={(e) => SetId(e.target.value)}
-              className="form-control" placeholder="Ingrese el id del servicio de carretera" aria-label="Username" aria-describedby="basic-addon1"/>
-                </div>
+              
+           
                 <div className="input-group mb-3">
               <span className="input-group-text" id="basic-addon1">Nombre</span>
               <input type="text" value={Name}
@@ -110,9 +130,11 @@ const RoadServices = ()=> {
     }
 
   return (
+
     <div className="container">
 
-    <div className="Notificaciones">
+
+    <div className="RoadService">
     
 </div>
 <div className="card text-center">
@@ -120,9 +142,36 @@ const RoadServices = ()=> {
     Servicios De Carretera
   </div>
   <div className="card-body">
- {formularioRoadService()} 
+  {showGasStation ?(
+     <div>
+     {formularioRoadService()} 
+ </div>
+       
+    ):(
+      <p>Haz click para generar una notificacion</p>
+    )}
+      {showCasetas ?(
+     <div>
+     {formularioRoadService()} 
+ </div>
+       
+    ):(
+      <p></p>
+    )}
+    {showServicios ?(
+     <div>
+     {formularioRoadService()} 
+ </div>
+       
+    ):(
+      <p></p>
+    )}
+ 
   </div>
   <div className="card-footer text-muted">
+  <button type="button" className="btn btn-outline-danger" onClick={ChangeGas}>Gasolineras</button>
+  <button type="button" className="btn btn-outline-danger" onClick={ChangeCasetas}>Casetas</button>
+  <button type="button" className="btn btn-outline-danger" onClick={ChangeService}>Servicios</button>
   </div>
 </div>
 </div>
@@ -131,29 +180,33 @@ const RoadServices = ()=> {
 }
 export default RoadServices;
 
-/* <div className="container">
-
-    <div className="Notificaciones">
-    
-</div>
-<div className="card text-center">
-  <div className="card-header">
-    Notificaciones
-  </div>
-  <div className="card-body">
-  
-  {ShowNoti ?(
-        <p>Haz click para generar una notificacion</p>
-    ):(
-        <div>
-            {formularioNoti()}
-        </div>
-    )}
-  </div>
-  <div className="card-footer text-muted">
-  <button type="button" className="btn btn-outline-danger" onClick={showNotificaciones}>Generar Notificacion</button>
-  </div>
-</div>
+/* <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+    Dropdown
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <li><button class="dropdown-item" type="button">Action</button></li>
+    <li><button class="dropdown-item" type="button">Another action</button></li>
+    <li><button class="dropdown-item" type="button">Something else here</button></li>
+  </ul>
 </div>
 
+<div className="dropdown">
+  <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+    1
+  </button>
+  <ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <li><button className="dropdown-item" type="button">Action</button></li>
+    <li><button className="dropdown-item" type="button">Another action</button></li>
+    <li><button className="dropdown-item" type="button">Something else here</button></li>
+  </ul>
+</div>
+
+
+ <div className="input-group mb-3">
+              <span className="input-group-text" id="basic-addon1">Id</span>
+              <input type="text" value={IdService}
+              onChange={(e) => SetId(e.target.value)}
+              className="form-control" placeholder="Ingrese el id del servicio de carretera" aria-label="Username" aria-describedby="basic-addon1"/>
+                </div>
     );*/

@@ -176,7 +176,7 @@ const NotificacionesReact = ()=>{
      
         <button type="button" className="btn btn-outline-danger" onClick={addNoti}>Salvar Notificación</button>
     
-        <button type="button" className="btn btn-outline-danger" onClick={showSendNoti}>Enviar Notificaciones</button>
+       { /*<button type="button" className="btn btn-outline-danger" onClick={showSendNoti}>Enviar Notificaciones</button>*/}
         <div>
             {formularioSendNoti()}
         </div>
