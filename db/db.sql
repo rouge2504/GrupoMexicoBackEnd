@@ -183,3 +183,14 @@ CREATE TABLE NOTIFICACIONES_IMG(
     Emission_date DATE,
     Finalizacion_date DATE
 );
+
+CREATE TABLE road_services(
+    id_services BIGINT NOT NULL,
+    name VARCHAR(255),
+    adress VARCHAR(255),
+    lat VARCHAR(255),
+    lon VARCHAR(255),
+    cost VARCHAR(255),
+    created_at TIMESTAMP(0) NOT NULL,
+    updated_at TIMESTAMP(0) NOT NULL
+);

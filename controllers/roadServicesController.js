@@ -7,13 +7,13 @@ const RoadServices = require ('../models/roadServices');
 
 
 module.exports = {
-	async createTollboth(req, res){
-		console.log ("Registrando Caseta");
-		RoadServices.createTollboth(req.body, (err, data) => {
+	async createRoadService(req, res){
+		console.log ("Registrando Servicio De Carretera");
+		RoadServices.createRoadService(req.body, (err, data) => {
 			if (err){
 				return res.status(501).json({
 					success: false,
-                    message: 'Error al crear Caseta',
+                    message: 'Error al crear RoadService',
                     error: err
 				});
 			}
@@ -21,7 +21,7 @@ module.exports = {
 			console.log(data);
 			return res.status(200).json({
 			    success: true,
-			    message: 'Creando Caseta',
+			    message: 'Creando RoadService',
 			    data: data
 			});
 		});

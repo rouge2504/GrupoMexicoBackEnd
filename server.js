@@ -22,6 +22,7 @@ const usersRoutes = require('./routes/userRoutes');
 const mercadoPagoRoutes = require('./routes/mercadoPagoRoutes');
 const accidentRoutes = require('./routes/accidentRoutes');
 const roadServicesRoutes = require('./routes/roadServicesRoutes');
+const userAdminRoutes = require('./routes/userAdminRoutes');
 
 const port = process.env.PORT || 3000;
     app.use(session({
@@ -57,7 +58,8 @@ usersRoutes(app, upload);
 mercadoPagoRoutes(app);
 accidentRoutes(app,upload);
 roadServicesRoutes(app,upload);
-server.listen(3000,'172.20.15.47' || 'localhost', function(){
+userAdminRoutes(app, upload);
+server.listen(3000,'26.255.20.111' || 'localhost', function(){
     console.log('Aplicacion de NodeJS '+ port + ' Iniciada...')
 });
 
