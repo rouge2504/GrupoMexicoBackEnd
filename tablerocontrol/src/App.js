@@ -4,6 +4,8 @@ import './App.css';
 import AccidentesList from './AccidentsValue';
 import NotificacionesReact from './NotificacionesReact';
 import RoadServices from './roadservice';
+import AdminLogin from './createAdmi';
+//import LoginAdmin from './logAdmin';
 
 //const apiNameGet ='/api/accident/showAccidents';
 //const apiName = 'http://192.168.1.89:3000/api/accident/showAccidents';
@@ -13,8 +15,10 @@ function App() {
   return (
     <div className="App">
       <AccidentesList/>
+      
       <NotificacionesReact/>
       <RoadServices/>
+      <AdminLogin/>
     </div>
   );
 }
