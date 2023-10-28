@@ -38,7 +38,7 @@ export default App;
     // Configura el intervalo para llamar a fetchData cada 3 segundos
     const pollInterval = setInterval(() => {
       fetchData();
-    }, 3000);
+    }, 4000);
 
     // Limpia el intervalo cuando el componente se desmonta
     return () => clearInterval(pollInterval);

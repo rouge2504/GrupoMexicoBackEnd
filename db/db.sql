@@ -146,6 +146,18 @@ DELETE FROM grupo_mexico.user_has_car
  );
 
 
+  CREATE TABLE road_services(
+    id_services BIGINT NOT NULL,
+    name VARCHAR (255) NULL,
+    adress VARCHAR (255) NULL,
+    lat VARCHAR (255) NULL,
+    lon VARCHAR (255) NULL,
+    cost VARCHAR (255) NULL,
+        created_at TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP NOT NULL,
+ );
+
+
 //--
 USE reactrojo;
 
