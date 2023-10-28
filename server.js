@@ -59,7 +59,7 @@ mercadoPagoRoutes(app);
 accidentRoutes(app,upload);
 roadServicesRoutes(app,upload);
 userAdminRoutes(app, upload);
-server.listen(3000,'26.255.20.111' || 'localhost', function(){
+server.listen(3000,'172.20.15.47' || 'localhost', function(){
     console.log('Aplicacion de NodeJS '+ port + ' Iniciada...')
 });
 

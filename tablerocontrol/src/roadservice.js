@@ -3,7 +3,7 @@ import Axios from 'axios';
 //import bootstrap from 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const apiNameSet = 'http://26.255.20.111:3000/api/roadServices/createRoadService';
+const apiNameSet = 'https://grupo-mexico-backend.fly.dev/';
 //const apiNameGet = 'http://26.255.20.111:3000/api/roadServices/getTollboths';
 
 const RoadServices = ()=> {
@@ -30,7 +30,7 @@ const RoadServices = ()=> {
     const [showServicios, setGServicios] = useState(false);
 
     const addValues=()=>{
-        Axios.post(apiNameSet, {
+        Axios.post(apiNameSet + 'api/roadServices/createRoadService', {
             id_services: IdService,
 			name: Name,
 			adress: Adress,

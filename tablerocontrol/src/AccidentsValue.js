@@ -3,14 +3,14 @@ import Axios from 'axios';
 //import bootstrap from 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const apiName = 'http://26.255.20.111:3000/api/accident/showAccidents';
+const apiName = 'https://grupo-mexico-backend.fly.dev/';
 const AccidentesList = ()=> {
 
     const [usuariosList, setUsuarios] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     
     const getAccidents = async() =>{
-      const {data} =  await Axios.get(apiName)
+      const {data} =  await Axios.get(apiName + 'api/accident/showAccidents' )
       console.log(data);
       setUsuarios(data);
       
