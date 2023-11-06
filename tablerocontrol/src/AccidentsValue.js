@@ -4,13 +4,14 @@ import Axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const apiName = 'https://grupo-mexico-backend.fly.dev/';
+const apiNameLocal = 'http://26.255.20.111:3000/'
 const AccidentesList = ()=> {
 
     const [usuariosList, setUsuarios] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     
     const getAccidents = async() =>{
-      const {data} =  await Axios.get(apiName + 'api/accident/showAccidents' )
+      const {data} =  await Axios.get(apiNameLocal + 'api/accident/showAccidents' )
       console.log(data);
       setUsuarios(data);
       

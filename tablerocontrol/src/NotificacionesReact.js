@@ -25,7 +25,8 @@ const NotificacionesReact = ()=>{
             Descripcion: Descripcion,
             URLImagen: URLImagen,
             Emission_date: Emission_date,
-            Finalizacion_date: Finalizacion_date}).then(()=>{
+            Finalizacion_date: Finalizacion_date
+        }).then(()=>{
                limpiarCampos();
                 alert("Evento Registrado");
             });

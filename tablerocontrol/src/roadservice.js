@@ -4,6 +4,7 @@ import Axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const apiNameSet = 'https://grupo-mexico-backend.fly.dev/';
+const apiNameLocal = 'http://26.255.20.111:3000/'
 //const apiNameGet = 'http://26.255.20.111:3000/api/roadServices/getTollboths';
 
 const RoadServices = ()=> {
@@ -30,7 +31,7 @@ const RoadServices = ()=> {
     const [showServicios, setGServicios] = useState(false);
 
     const addValues=()=>{
-        Axios.post(apiNameSet + 'api/roadServices/createTollboth', {
+        Axios.post(apiNameLocal + 'api/roadServices/createTollboth', {
             id_services: IdService,
 			name: Name,
 			adress: Adress,

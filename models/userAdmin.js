@@ -54,4 +54,21 @@ UserAdmin.getAdminByEmail =(admin, result)=>{
     )
     }; 
 
+    UserAdmin.logIn = (admin, callback) => {
+        const sql = `SELECT * FROM userAdmin WHERE email = ? AND contraseña = ?`;
+        db.query(
+          sql, [admin.email, admin.contraseña],
+          (err, result) => {
+            if (err) {
+              callback(err, null);
+            } else {
+              if (result.length > 0) {
+                callback(null, result[0]);
+              } else {
+                callback("Usuario no existente", null);
+              }
+            }
+          }
+        );
+      };
 module.exports = UserAdmin;

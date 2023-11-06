@@ -64,5 +64,24 @@ module.exports = {
 			    data: data
 			});    
 		});
-	}
+	},
+
+	async logIn(req, res) {
+		UserAdmin.logIn(req.body, (err, data) => {
+		  if (err) {
+			return res.status(501).json({
+			  success: false,
+			  message: 'Error to get Admins',
+			  error: err,
+			});
+		  }
+	  
+		  console.log(data);
+		  return res.status(200).json({
+			success: true,
+			message: 'Get Admins',
+			data: data,
+		  });
+		});
+	  }
 }

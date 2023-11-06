@@ -11,8 +11,19 @@ db.connect(function(err){
     if (err) console.log("[mysql error]",err);
     console.log('DATABASE CONNECTED!');
 });*/
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'password',
+    database: 'reactrojo'
+});
 
-const db = mysql.createPool({
+db.connect(function(err){
+    if (err) console.log("[mysql error]",err);
+    console.log('DATABASE CONNECTED!');
+});
+
+/*const db = mysql.createPool({
     connectionLimit : 100,
     host: 'sql9.freemysqlhosting.net',
     user: 'sql9657433',
@@ -24,6 +35,6 @@ db.getConnection(function(err,connection){
     if (err) console.log("[mysql error]",err);
     console.log('DATABASE CONNECTED!');
     connection.release();
-});
+});*/
 
 module.exports = db;
