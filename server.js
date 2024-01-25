@@ -54,12 +54,12 @@ const upload = multer ({
 /*
     LLAMADO DE RUTAS
 */
-usersRoutes(app, upload);
+usersRoutes(app, upload);	
 mercadoPagoRoutes(app);
 accidentRoutes(app,upload);
 roadServicesRoutes(app,upload);
 userAdminRoutes(app, upload);
-server.listen(3000,'172.20.15.47' || 'localhost', function(){
+server.listen(3000,/*'10.4.0.4' || 'localhost'*/ function(){
     console.log('Aplicacion de NodeJS '+ port + ' Iniciada...')
 });
 

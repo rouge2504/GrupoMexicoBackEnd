@@ -3,7 +3,7 @@ import Axios from 'axios';
 //import bootstrap from 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const apiNameSet = 'https://grupo-mexico-backend.fly.dev/';
+const apiNameSet = 'http://172.208.66.103/';
 //const apiNameGet = 'http://26.255.20.111:3000/api/roadServices/getTollboths';
 
 const RoadServices = ()=> {

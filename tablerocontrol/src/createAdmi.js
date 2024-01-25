@@ -4,7 +4,7 @@ import Axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-const apiNameSet = 'http://26.255.20.111:3000/api/userAdmin/createAdmin';
+const apiNameSet = 'http://172.208.66.103:3000/api/userAdmin/createAdmin';
 
 
 const AdminLogin = ()=> {

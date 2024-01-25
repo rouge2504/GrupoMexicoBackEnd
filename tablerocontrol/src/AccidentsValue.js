@@ -3,7 +3,7 @@ import Axios from 'axios';
 //import bootstrap from 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const apiName = 'https://grupo-mexico-backend.fly.dev/';
+const apiName = 'http://172.208.66.103:3000/';
 const AccidentesList = ()=> {
 
     const [usuariosList, setUsuarios] = useState([]);
