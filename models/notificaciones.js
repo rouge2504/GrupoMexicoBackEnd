@@ -23,7 +23,7 @@ Notificacion.create =(noti, result)=>{
         );
 };
 Notificacion.getNotificaciones =(noti,result)=>{
-const sql =`SELECT * FROM NOTIFICACIONES_IMG`;
+const sql =`SELECT * FROM notificaciones_img`;
 db.query(
 sql,(err,noti)=>{
     if (err) {
@@ -37,7 +37,7 @@ sql,(err,noti)=>{
 };
 
 Notificacion.getNotificacionesById = (noti,result)=>{
-    const sql =`SELECT * FROM NOTIFICACIONES_IMG WHERE id = ?`;
+    const sql =`SELECT * FROM notificaciones_img WHERE id = ?`;
     db.query(
     sql,[
         noti.id

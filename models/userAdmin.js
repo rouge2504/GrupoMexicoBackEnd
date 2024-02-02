@@ -2,7 +2,7 @@ const db = require('../config/config');
 const UserAdmin = {};
 
 UserAdmin.createAdmin = (userA, result) =>{
-const sql = `INSERT INTO userAdmin(nombre,apellido_paterno,apellido_materno,email,rol,contraseña)
+const sql = `INSERT INTO userAdmin(nombre,apellido_paterno,apellido_materno,email,rol,password)
 VALUES(?,?,?,?,?,?)`;
 db.query(
     sql,[
@@ -11,7 +11,7 @@ db.query(
         userA.apellido_materno,
         userA.email,
         userA.rol,
-        userA.contraseña],(err, res)  => {
+        userA.password],(err, res)  => {
             if(err){
                 console.log('Error:' , err);
                 result(err,null);
@@ -25,7 +25,7 @@ db.query(
 };
 
 UserAdmin.getAdmin =(admin, result)=>{
-const sql = `SELECT contraseña, email FROM userAdmin 
+const sql = `SELECT password, email FROM userAdmin 
 `;
 db.query(
     sql,[admin.id],(err,admin)=>{
@@ -40,7 +40,7 @@ db.query(
 };
 
 UserAdmin.getAdminByEmail =(admin, result)=>{
-    const sql = `SELECT contraseña, email FROM userAdmin WHERE email = ?
+    const sql = `SELECT password, email FROM userAdmin WHERE email = ?
     `;
     db.query(
         sql,[admin],(err,adminData)=>{
