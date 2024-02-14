@@ -170,7 +170,8 @@ telefono VARCHAR(255),
 coche VARCHAR(255),
 latitud VARCHAR(255),
 longuitud VARCHAR(255),
-placa VARCHAR(255)
+placa VARCHAR(255),
+created_at TIMESTAMP(0) NOT NULL
 );
 
 select * from USUARIO_ACCIDENTE;
@@ -194,3 +195,11 @@ CREATE TABLE road_services(
     created_at TIMESTAMP(0) NOT NULL,
     updated_at TIMESTAMP(0) NOT NULL
 );
+
+
+CREATE TABLE notificaciones_admin(
+  Titulo VARCHAR(255),
+  Descripcion VARCHAR(255),
+  URLImagen VARCHAR(255) NULL,
+  Emission_date TIMESTAMP(0) NOT NULL,
+  Finalizacion_date VARCHAR(255));

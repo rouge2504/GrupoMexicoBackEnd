@@ -36,6 +36,7 @@ const AccidentesList = ()=> {
                   <th scope="col">Latitud</th>
                   <th scope="col">Longitud</th>
                   <th scope="col">Placa</th>
+                  <th scope="col">Fecha y hora</th>
                 </tr>
               </thead>
               <tbody>
@@ -50,6 +51,7 @@ const AccidentesList = ()=> {
                     <td style={{ textAlign: "center" }}>{accidente.latitud}</td>
                     <td style={{ textAlign: "center" }}>{accidente.longuitud}</td>
                     <td style={{ textAlign: "center" }}>{accidente.placa}</td>
+                    <td style={{ textAlign: "center" }}>{accidente.created_at}</td>
                   </tr>
                 ))}
               </tbody>

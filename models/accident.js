@@ -3,8 +3,8 @@ const Accident ={};
 
 Accident.create = (accident, result)=>{
     const sql = `INSERT INTO USUARIO_ACCIDENTE(
-        nombre,apellido,email,telefono,coche,latitud,longuitud,placa)
-        VALUES(?,?,?,?,?,?,?,?)`;
+        nombre,apellido,email,telefono,coche,latitud,longuitud,placa,created_at)
+        VALUES(?,?,?,?,?,?,?,?,?)`;
     db.query(
         sql,[
             accident.nombre,
@@ -14,7 +14,8 @@ Accident.create = (accident, result)=>{
             accident.coche,
             accident.latitud,
             accident.longuitud,
-            accident.placa],(err, res)  => {
+            accident.placa,
+            new Date()],(err, res)  => {
                 if(err){
                     console.log('Error:' , err);
                     result(err,null);
