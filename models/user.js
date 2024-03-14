@@ -122,6 +122,7 @@ Users.findByEmail = (email, result) =>{
     db.query(
         sql, [email],
         (err, user) => {
+        	console.log('Users ', user);
             if(err){
                 console.log('Error:' , err);
                 result(err,null);
@@ -216,6 +217,37 @@ Users.update = (user, result) => {
             user.lastname,
             user.phone,
             user.image,
+            new Date(),
+			user.id
+        ],
+        (err, res) => {
+            if(err){
+                console.log('Error al tratar de actualizar:' , err);
+                result(err,null);
+            }else{
+                console.log('Usuario actualizado: ', user.id);
+                result(null, user.id);
+            }
+        }
+    )
+	
+	
+}
+
+Users.updatePassword= async (user, result) => {
+	const sql = `
+	UPDATE
+		users
+	SET
+		password = ?,
+		updated_at = ?
+	WHERE
+		id = ?
+	`;
+	const hash = await bcrypt.hash(user.password, 10);
+	db.query(
+        sql,[
+            hash,
             new Date(),
 			user.id
         ],

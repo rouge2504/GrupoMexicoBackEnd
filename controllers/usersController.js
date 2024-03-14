@@ -205,4 +205,49 @@ module.exports = {
 
         });
     }, 
+
+
+        async updatePassword(req, res){
+        const user = req.body.email;
+        const newPassword = req.body.password;
+
+            console.log('Email with change: ', user);
+            User.findByEmail(user,async(err, myData)=>{
+                            console.log('Error ', err);
+                
+            if(err){
+                return res.status(501).json({
+                    success: false,
+                    message: 'Hubo un error con el cambio de la contraseña',
+                    error: err
+                });
+            }
+            console.log('Password: ', myData.password);
+            myData.password = newPassword;
+           User.updatePassword(myData, (err, userToChange)=>{
+                            if(err){
+                return res.status(501).json({
+                    success: false,
+                    message: 'Hubo un error con el cambio de la contraseña',
+                    error: err
+                });
+            }
+
+                       return res.status(201).json({
+                    success: true,
+                    message: 'El usuario se actualizo correctamente',
+                    data: userToChange
+                });
+            });   
+
+
+            /*return res.status(201).json({
+                    success: true,
+                    message: 'El usuario se actualizo correctamente',
+                    data: myData
+                });*/
+            });
+
+
+    }, 
 }

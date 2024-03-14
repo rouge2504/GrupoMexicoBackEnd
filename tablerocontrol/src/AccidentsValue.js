@@ -2,6 +2,7 @@ import React,{useEffect,useState} from "react";
 import Axios from 'axios';
 //import bootstrap from 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import moment from 'moment';
 
 const apiName = 'http://172.208.66.103:3000/';
 const AccidentesList = ()=> {
@@ -41,6 +42,7 @@ const AccidentesList = ()=> {
               </thead>
               <tbody>
                 {usuariosList.data.map((accidente) => (
+
                   <tr key={accidente.id}>
                     <th scope="row">{accidente.id}</th>
                     <td style={{ textAlign: "center" }}>{accidente.nombre}</td>
@@ -51,7 +53,8 @@ const AccidentesList = ()=> {
                     <td style={{ textAlign: "center" }}>{accidente.latitud}</td>
                     <td style={{ textAlign: "center" }}>{accidente.longuitud}</td>
                     <td style={{ textAlign: "center" }}>{accidente.placa}</td>
-                    <td style={{ textAlign: "center" }}>{accidente.created_at}</td>
+                    <td style={{ textAlign: "center" }}>{
+                     moment( accidente.created_at).format('MMM DD, YYYY HH:mm:ss')}</td>
                   </tr>
                 ))}
               </tbody>

@@ -14,6 +14,7 @@ module.exports = (app, upload) => {
     app.post('/api/card/createCard', cardController.createCard);
     app.post('/api/card/getCards', cardController.getCards);
 	app.put('/api/users/update', upload.array('image', 1), usersController.updateWithImage);
-	app.put('/api/users/updateWithoutImage', usersController.updateWithoutImage);
+    app.put('/api/users/updateWithoutImage', usersController.updateWithoutImage);
+	app.post('/api/users/updatePassword', usersController.updatePassword);
 
 }
